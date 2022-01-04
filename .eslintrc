@@ -1,0 +1,34 @@
+{
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    ["api", "./api"]
+                ]
+            }
+        }
+    },
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "react/function-component-definition": [
+            2,
+            {
+                "namedComponents": "arrow-function",
+                "unnamedComponents": "arrow-function"
+            }
+        ],
+        "import/prefer-default-export": 0
+    },
+    "plugins": [
+        "react",
+        "jsx-a11y",
+        "import"
+    ],
+    "extends": "airbnb",
+    "parser": "@babel/eslint-parser",
+    "env": {
+        "browser": true,
+        "node": true,
+        "es2021": true
+    }
+}
