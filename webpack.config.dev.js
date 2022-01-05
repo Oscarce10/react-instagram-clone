@@ -4,6 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
+const ghpages = require('gh-pages');
+
+ghpages.publish('dist', () => {});
+
 const options = {
   extensions: ['js', 'jsx'],
   exclude: [
