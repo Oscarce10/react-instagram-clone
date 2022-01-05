@@ -7,6 +7,6 @@ charset = utf-8
 indent_style = space
 indent_size = 4
 
-[*.js]
-indent_style = space
+[{*.js, *.jsx, *.ts, *.tsx}]
 indent_size = 2
+ij_html_space_inside_empty_tag = true

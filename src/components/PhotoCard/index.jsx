@@ -1,20 +1,20 @@
 import React from 'react';
-import { ImgWrapper } from './styles';
-
-const DEFAULT_IMAGE = 'https://picsum.photos/500';
+import { BsSuitHeartFill } from 'react-icons/bs';
+import { Button, Img, ImgWrapper } from './styles';
 
 export const PhotoCard = ({
-  id, likes = 0, src = DEFAULT_IMAGE
+  id, likes = 0, src = `https://picsum.photos/400?random=${Math.random()}`,
 }) => (
-  <ImgWrapper>
+  <article>
     <a href={`detail/${id}`}>
-      <div>
-        <img src={src} alt="card" />
-      </div>
+      <ImgWrapper>
+        <Img src={src} alt="card" />
+      </ImgWrapper>
     </a>
-    <button type="button">
-      <span>&hearts;</span>
+    <Button>
+      <span><BsSuitHeartFill size="32px" color="#E6005C" /></span>
       {likes}
-    </button>
-  </ImgWrapper>
+      &nbsp;likes
+    </Button>
+  </article>
 );
