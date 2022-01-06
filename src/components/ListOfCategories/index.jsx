@@ -1,11 +1,12 @@
-import React from 'react';
-import { categories } from 'api/db.json';
+import React, { useEffect, useState } from 'react';
 import { Category } from '../Category';
 import { List, Item } from './styles';
 
-export const ListOfCategories = () => (
-  <List>
-    {
+export const ListOfCategories = ({ initCategories = [] }) => {
+  const [categories, setCategories] = useState(initCategories);
+  return (
+    <List>
+      {
         categories.map(
           (category) => (
             <Item key={category.id}>
@@ -17,6 +18,7 @@ export const ListOfCategories = () => (
             </Item>
           ),
         )
-    }
-  </List>
-);
+      }
+    </List>
+  );
+};
