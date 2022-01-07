@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BeatLoader } from 'react-spinners';
 import { ListOfCategories } from './components/ListOfCategories';
 import { GlobalStyle } from './styles/GlobalStyles';
 import { ListOfPhotoCards } from './components/ListOfPhotoCards';
@@ -19,13 +20,22 @@ const App = () => {
       .then((response) => setData(response))
       .catch((error) => error);
   }, []);
+
   return (
     <div>
       <GlobalStyle />
       <Logo />
       <GopherSvg />
-      {data && <ListOfCategories initCategories={data.categories} />}
-      {data && <ListOfPhotoCards photos={data.photos} />}
+      {
+        data
+          ? <ListOfCategories initCategories={data.categories} />
+          : <BeatLoader />
+      }
+      {
+        data
+          ? <ListOfPhotoCards photos={data.photos} />
+          : <BeatLoader />
+      }
     </div>
   );
 };

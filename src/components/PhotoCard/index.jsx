@@ -8,7 +8,7 @@ export const PhotoCard = ({
   <article>
     <a href={`detail/${id}`}>
       <ImgWrapper>
-        <Img src={src} alt="card" />
+        <Img src={src} alt="card" loading="lazy" />
       </ImgWrapper>
     </a>
     <Button>
