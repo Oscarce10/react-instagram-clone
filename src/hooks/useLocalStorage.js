@@ -20,13 +20,11 @@ export const useLocalStorage = (key, initialValue) => {
         photo_id: key,
         action: value === true ? 'like' : 'dislike',
       };
-      axios.post(uri, params).then(
+      axios.put(uri, params).then(
         (response) => response.data,
       ).catch((error) => {
         console.error(error);
-        console.error(error.response);
         console.error(error.response.data);
-        console.error(error.response.data.error);
       });
     } catch (e) {
       console.error(e);

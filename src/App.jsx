@@ -1,46 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import { BeatLoader } from 'react-spinners';
-import axios from 'axios';
+import React, { useEffect } from 'react';
 import { ListOfCategories } from './components/ListOfCategories';
 import { GlobalStyle } from './styles/GlobalStyles';
 import { ListOfPhotoCards } from './components/ListOfPhotoCards';
-import Logo from './components/Logo';
+import { Logo } from './components/Logo';
+import { PhotoCardWithQuery } from './components/PhotoCardWithQuery';
 
-function RetrieveData() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  useEffect(async () => {
+const App = () => {
+  useEffect(() => {
     window.onbeforeunload = () => {
       window.scrollTo(0, 0);
     };
-    setLoading(true);
-    const url = 'https://oscarce10.s3.amazonaws.com/db.json';
-    await axios.get(url)
-      .then((response) => {
-        setData(response.data);
-        setLoading(false);
-      })
-      .catch((error) => error);
-  }, []);
-  return { data, loading };
-}
-
-const App = () => {
-  const { data, loading } = RetrieveData();
-
+  });
+  const urlParams = new URLSearchParams(window.location.search);
+  const detailId = urlParams.get('detail');
+  console.log(detailId);
   return (
     <div>
       <GlobalStyle />
       <Logo />
       {
-        !loading
-          ? <ListOfCategories />
-          : <ListOfCategories />
-      }
-      {
-        !loading
-          ? <ListOfPhotoCards photos={data.photos} />
-          : <BeatLoader />
+        detailId
+          ? (
+            <>
+              <h1>
+                {`Detail photo ${detailId}`}
+              </h1>
+              <PhotoCardWithQuery
+                id={detailId}
+              />
+            </>
+          )
+          : (
+            <>
+              <ListOfCategories />
+              <ListOfPhotoCards />
+            </>
+          )
       }
     </div>
   );

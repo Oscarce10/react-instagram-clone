@@ -1,6 +1,12 @@
 import * as React from 'react';
 import { Svg } from './styles';
 
+export const Logo = () => (
+  <a href="/">
+    <SvgComponent />
+  </a>
+);
+
 const SvgComponent = (props) => (
   <Svg
     width={550.145}
@@ -56,5 +62,3 @@ const SvgComponent = (props) => (
     </g>
   </Svg>
 );
-
-export default SvgComponent;
