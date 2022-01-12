@@ -1,12 +1,7 @@
 const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-
-const ghpages = require('gh-pages');
-
-ghpages.publish('dist', () => {});
 
 const options = {
   extensions: ['js', 'jsx'],
@@ -19,15 +14,16 @@ const options = {
 module.exports = {
   entry: './src/index.jsx',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
     clean: true,
   },
+  devtool: 'source-map',
   mode: 'development',
   resolve: {
     extensions: ['.js', '.jsx', 'json'],
     alias: {
-      api: path.resolve(__dirname, 'api/'),
+      hooks: path.resolve(__dirname, 'src/hooks/'),
     },
   },
   module: {
@@ -48,14 +44,6 @@ module.exports = {
           },
         ],
       },
-      // {
-      //   test: /\.(sc|c)ss$/,
-      //   use: [
-      //     MiniCssExtractPlugin.loader,
-      //     'css-loader',
-      //     'sass-loader'
-      //   ]
-      // },
     ],
   },
   plugins: [
@@ -70,8 +58,7 @@ module.exports = {
     new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
-      server: { baseDir: ['dist'] },
+      server: { baseDir: ['build'] },
     }),
-    // new MiniCssExtractPlugin(),
   ],
 };

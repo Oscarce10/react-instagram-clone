@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { BsSuitHeartFill } from 'react-icons/all';
 import { fadeIn } from '../../styles/animation';
 
 export const ImgWrapper = styled.div`
@@ -33,4 +34,22 @@ export const Button = styled.button`
 
   background: none;
   border: none;
+`;
+
+export const LoadingPhotoCard = styled.div`
+  min-height: 200px;
+  background: #fce77d;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Article = styled.article`
+  min-height: 200px;
+`;
+
+export const LikedIcon = styled(BsSuitHeartFill)`
+  ${fadeIn({ time: '250ms', type: 'ease-in' })}
 `;

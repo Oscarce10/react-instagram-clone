@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { fadeIn } from '../../styles/animation';
 
 export const List = styled.ul`
   display: flex;
   overflow: scroll;
   width: 100%;
-  &.fixed{
+  ${props => props.fixed && css`{
     ${fadeIn()}
     background: transparent;
     border-radius: 60px;
@@ -19,9 +19,18 @@ export const List = styled.ul`
     top: 43px;
     transform: scale(.5);
     z-index: 1;
-  }
+  }`}
   `;
 
 export const Item = styled.li`
   padding: 0 8px;
+`;
+
+export const LoadingStyle = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+  height: 100%;
+  min-width: 600px;
+  min-height: 100px;
 `;
