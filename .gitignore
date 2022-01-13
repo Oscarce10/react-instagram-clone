@@ -216,6 +216,8 @@ sketch
 # End of https://www.toptal.com/developers/gitignore/api/react,webstorm,visualstudiocode,jetbrains
 
 dist/
+build/
+
 node_modules/
 ./package-lock.json
 

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { ListOfCategories } from './components/ListOfCategories';
 import { GlobalStyle } from './styles/GlobalStyles';
 import { ListOfPhotoCards } from './components/ListOfPhotoCards';
-import { Logo } from './components/Logo';
 import { PhotoCardWithQuery } from './components/PhotoCardWithQuery';
+import { Header } from './components/Header/Header';
 
 const App = () => {
   useEffect(() => {
@@ -13,11 +13,10 @@ const App = () => {
   });
   const urlParams = new URLSearchParams(window.location.search);
   const detailId = urlParams.get('detail');
-  console.log(detailId);
   return (
     <div>
       <GlobalStyle />
-      <Logo />
+      <Header />
       {
         detailId
           ? (

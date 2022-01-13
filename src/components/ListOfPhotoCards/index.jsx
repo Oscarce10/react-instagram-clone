@@ -9,7 +9,6 @@ export const ListOfPhotoCards = ({categoryId}) => {
     if (categoryId) {
       uri += `&category_id=${categoryId}`;
     }
-    console.log(uri);
     await axios.get(uri).then((response) => {
       setPhotos(response.data.data);
     }).catch((error) => {

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { OctocatSvg } from './Octocat';
 
 export const Svg = styled.svg`
   width: 220px;
@@ -7,6 +8,11 @@ export const Svg = styled.svg`
 `;
 
 export const Gopher = styled.svg`
+  width: 75px;
+  height: 75px;
+`;
+
+export const Octocat = styled(OctocatSvg)`
   width: 75px;
   height: 75px;
 `;
