@@ -18,6 +18,7 @@ export const ListOfCategories = () => {
             (category) => (
               <Item key={category.id}>
                 <Category
+                  id={category.id}
                   cover={category.cover}
                   emoji={category.emoji}
                   path={category.path}

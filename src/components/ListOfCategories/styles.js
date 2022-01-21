@@ -5,7 +5,7 @@ export const List = styled.ul`
   display: flex;
   overflow: scroll;
   width: 100%;
-  ${props => props.fixed && css`{
+  ${(props) => props.fixed && css`{
     ${fadeIn()}
     background: transparent;
     border-radius: 60px;

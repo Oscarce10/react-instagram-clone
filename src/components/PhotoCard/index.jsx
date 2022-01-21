@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BsSuitHeart } from 'react-icons/bs';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 import { useNearScreen } from 'hooks/useNearScreen';
+import { Link } from 'react-router-dom';
 import {
   Article, Button, Img, ImgWrapper, LikedIcon,
 } from './styles';
@@ -18,11 +19,11 @@ export const PhotoCard = ({
       {
         show ? (
           <>
-            <a href={`/?detail=${id}`}>
+            <Link to={`/photos/${id}`}>
               <ImgWrapper>
                 <Img src={src} alt="card" loading="lazy" />
               </ImgWrapper>
-            </a>
+            </Link>
             <Button onClick={() => {
               setIsLiked(!isLiked);
               setLikesCount(isLiked ? likesCount - 1 : likesCount + 1);
