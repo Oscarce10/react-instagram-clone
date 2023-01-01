@@ -3,10 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const ghpages = require('gh-pages');
 
-ghpages.publish('build', () => {});
+ghpages.publish('build', () => { });
 
 module.exports = {
   entry: './src/index.jsx',
@@ -45,7 +46,7 @@ module.exports = {
             const packageName = module.context.match(
               /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
             )[1];
-            return `${cacheGroupKey}.${packageName.replace('@', '')}`;
+            return `${ cacheGroupKey }.${ packageName.replace('@', '') }`;
           },
         },
         common: {
@@ -93,5 +94,6 @@ module.exports = {
         },
       ],
     }),
+    new Dotenv()
   ],
 };

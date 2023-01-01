@@ -31,7 +31,7 @@ export const ListOfCategories = () => {
   );
 
   useEffect(async () => {
-    const url = 'https://oscarce10-photogram.herokuapp.com/api/v1/categories';
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/categories`;
     await axios.get(url)
       .then((response) => {
         setTimeout(() => {

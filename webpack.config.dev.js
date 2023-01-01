@@ -2,6 +2,7 @@ const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const options = {
   extensions: ['js', 'jsx'],
@@ -60,5 +61,6 @@ module.exports = {
       port: 3000,
       server: { baseDir: ['build'] },
     }),
+    new Dotenv()
   ],
 };

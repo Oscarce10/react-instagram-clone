@@ -9,7 +9,7 @@ export const ListOfPhotoCards = () => {
   const { categoryId } = useParams();
   useEffect(async () => {
     setPhotos([]);
-    let uri = 'https://oscarce10-photogram.herokuapp.com/api/v1/photos?items_per_page=21';
+    let uri = `${ process.env.REACT_APP_BACKEND_URL}/api/v1/photos?items_per_page=21`;
     if (categoryId) {
       uri += `&category_id=${categoryId}`;
     }

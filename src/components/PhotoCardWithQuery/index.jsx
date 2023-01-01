@@ -7,7 +7,7 @@ export const PhotoCardWithQuery = () => {
   const id = useParams().detailId;
   const [photo, setPhoto] = useState(null);
   useEffect(async () => {
-    const uri = `https://oscarce10-photogram.herokuapp.com/api/v1/photos/${id}`;
+    const uri = `${ process.env.REACT_APP_BACKEND_URL }/api/v1/photos/${ id }`;
     await axios.get(uri).then((response) => {
       setPhoto(response.data.data);
     }).catch((error) => {
@@ -18,7 +18,7 @@ export const PhotoCardWithQuery = () => {
     photo && (
       <>
         <h1>
-          {`Detail photo ${id}`}
+          {`Detail photo ${ id }`}
         </h1>
         <PhotoCard
           id={photo.id}
