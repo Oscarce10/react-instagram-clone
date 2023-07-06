@@ -18,6 +18,7 @@
     "bugs": {
         "url": "https://github.com/midudev/curso-platzi-react-avanzado/issues"
     },
+    "proxy": "https://photogram-api.oscar-cely.xyz",
     "homepage": "https://oscarce10.github.io/react-instagram-clone/",
     "devDependencies": {
         "@babel/core": "^7.16.7",
